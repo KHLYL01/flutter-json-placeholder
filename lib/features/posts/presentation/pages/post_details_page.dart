@@ -7,6 +7,8 @@ import 'package:json_placeholder/core/widgets/custom_progress_indicator.dart';
 import 'package:json_placeholder/core/widgets/custom_text_form_field.dart';
 import 'package:json_placeholder/features/posts/presentation/controllers/post_controller.dart';
 
+import '../../../../core/widgets/custom_error_widget.dart';
+
 class PostDetailsPage extends StatelessWidget {
   const PostDetailsPage({Key? key}) : super(key: key);
 
@@ -26,6 +28,16 @@ class PostDetailsPage extends StatelessWidget {
           if (controller.isLoading.value) {
             return const CustomProgressIndicator();
           }
+
+          if (controller.errMessage.isNotEmpty) {
+            return ErrorWidgetWithRetry(
+              errorMessage: controller.errMessage.value,
+              onRetry: () {
+                Get.back();
+              },
+            );
+          }
+
           return ListView(
             children: [
               customTextFormField(

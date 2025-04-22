@@ -7,7 +7,6 @@ import '../../data/repository/post_repository.dart';
 
 class PostController extends GetxController {
   final PostRepository _repository;
-
   PostController(this._repository);
 
   RxBool isLoading = false.obs;
@@ -25,7 +24,11 @@ class PostController extends GetxController {
     isLoading(true);
     errMessage("");
     final data = await _repository.findAll();
-    data.fold((l) => errMessage(l.eerMessage), (r) => posts(r));
+    data.fold(
+      (l) => errMessage(l.eerMessage),
+      (r) => posts(r),
+    );
+
     isLoading(false);
 
     if (errMessage.isNotEmpty) {
@@ -36,7 +39,6 @@ class PostController extends GetxController {
       );
       return;
     }
-
     customSnackBar(title: "Done", message: "Fetch Posts Successfully");
   }
 

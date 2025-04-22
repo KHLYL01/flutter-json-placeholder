@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:json_placeholder/core/constants/app_text_style.dart';
+import 'package:json_placeholder/core/extensions/widget_extension.dart';
 import 'package:json_placeholder/core/routes/routing_manager.dart';
 import 'package:json_placeholder/core/widgets/custom_progress_indicator.dart';
 import 'package:json_placeholder/features/posts/presentation/controllers/post_controller.dart';

@@ -13,5 +13,6 @@ class PostModel {
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>
       _$PostModelFromJson(json);
+
   Map<String, dynamic> toJson() => _$PostModelToJson(this);
 }

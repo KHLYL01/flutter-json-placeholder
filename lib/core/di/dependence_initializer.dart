@@ -16,6 +16,7 @@ class DependenceInitializer {
 
     // Posts DI
     Get.lazyPut<PostRepository>(() => PostRepository(Get.find()));
+
     Get.put(PostController(Get.find()));
   }
 }
